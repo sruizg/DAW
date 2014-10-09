@@ -1,0 +1,230 @@
+<html>
+	<header>
+	<title> Activitad 1.3 </title>
+	</header>
+	<body>
+		<h3> Lista de conceptos con ejemplos</h3>
+		<table style="width:100%">
+			<tr>
+				<td width="100px">Concepto</td>
+				<td width="900px">Código</td> 
+				<td width="100px">Resultado</td>
+			</tr>
+			<tr>
+				<td>JS Variables</td>
+				<td>
+					<textarea style="width:100%;height:280px">
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo"></p>
+<script>
+var x = 5;
+var y = 6;
+document.getElementById("demo").innerHTML = x + y;
+//document.getElementById("demo").innerHTML = x;
+//document.getElementById("demo").innerHTML = y;
+</script>
+
+<p>Try to experiment with the // comments.</p>
+</body>
+</html>
+					</textarea>
+				</td> 
+				<td></td>
+			</tr>
+			<tr>
+				<td>JS Data Types</td>
+				<td>
+				<textarea style="width:100%;height:280px">
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo"></p>
+
+<script>
+//-----------------//
+//JavaScript Strings
+//-----------------//
+//La variable string se puede definir de las dos maneras:
+var coche = 'Volvo XC60';
+var respuesta = "It's alright";
+
+document.getElementById("demo").innerHTML =
+coche + "<br>" + respuesta;
+//-----------------//
+//JavaScript Numbers
+//-----------------//
+//JavaScript has only one type of numbers.
+//Numbers can be written with, or without decimals:
+var x1 = 34.00;
+var x2 = 34;
+//Extra large or extra small numbers can be written with scientific (exponential) notation:
+var y = 123e5;
+var z = 123e-5;
+
+document.getElementById("demo").innerHTML =
+x1 + "<br>" + x2 + "<br>" + y + "<br>" + z
+//-----------------//
+//JavaScript Booleans
+//-----------------//
+//Booleans can only have two values: true or false.
+var x = true;
+var y = false;
+
+//-----------------//
+//JavaScript Arrays
+//-----------------//
+//JavaScript arrays are written with square brackets.
+//Array items are separated by commas.
+var cars = ["Saab","Volvo","BMW"];
+
+document.getElementById("demo").innerHTML = cars[0];
+
+//-----------------//
+//JavaScript Objects
+//-----------------//
+//JavaScript objects are written with curly braces.
+//Object properties are written as name:value pairs, separated by commas.
+var person = {
+    firstName : "John",
+    lastName  : "Doe",
+    age       : 50,
+    eyeColor  : "blue"
+};
+
+document.getElementById("demo").innerHTML =
+person.firstName + " is " + person.age + " years old.";
+
+//-----------------//
+//Undefined and Null
+//-----------------//
+//he value of a variable with no value is undefined.
+//Variables can be emptied by setting the value to null.
+var person;
+var car = "Volvo";
+var x = null;
+document.getElementById("demo").innerHTML =
+person + "<br>" + car + "<br>" + x;
+
+//-----------------//
+//The typeof Operator
+//-----------------//
+//You can use the JavaScript typeof operator to find the type of a JavaScript variable.
+function myFunction() {
+    document.getElementById("demo").innerHTML = 
+    typeof "john" + "<br>" + 
+    typeof 3.14 + "<br>" +
+    typeof false + "<br>" +
+    typeof [1,2,3,4] + "<br>" +
+    typeof {name:'john', age:34};
+
+//-----------------//
+//Do Not Declare String, Number, and Boolean as Objects!
+//-----------------//
+//When a JavaScript variable is declared with the keyword "new", the variable is created as an object:
+var x = new String();          // Declares x as a String object
+var y = new Number();          // Declares y as a Number object
+var z = new Boolean();         // Declares z as a Boolean object
+
+</script>
+
+</body>
+</html>
+				</textarea>
+				</td> 
+				<td>
+				<textarea style="height:280px">
+Volvo XC60
+It's alright
+
+34
+34
+12300000
+0.00123
+
+Saab
+
+John is 50 years old.
+
+undefined
+Volvo
+null
+
+string
+number
+boolean
+object
+object
+				</textarea>
+				</td>
+			</tr>
+			<tr>
+				<td>JS Objects</td>
+				<td>
+				<textarea style="width:100%;height:280px">
+				</textarea>
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>JS Functions</td>
+				<td>
+				<textarea style="width:100%;height:280px">
+				</textarea>
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>JS Operators</td>
+				<td>
+				<textarea style="width:100%;height:280px">
+				</textarea>
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>JS Comparisons</td>
+				<td>
+				<textarea style="width:100%;height:280px">
+				</textarea>
+				</td> 
+				<td></td>
+			</tr>
+			<tr>
+				<td>JS Conditions</td>
+				<td>
+				<textarea style="width:100%;height:280px">
+				</textarea>
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>JS Switch</td>
+				<td>
+				<textarea style="width:100%;height:280px">
+				</textarea>
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>JS Loop For</td>
+				<td>
+				<textarea style="width:100%;height:280px">
+				</textarea>
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>JS Loop While</td>
+				<td>
+				<textarea style="width:100%;height:280px">
+				</textarea>
+				</td>
+				<td></td>
+			</tr>
+		</table>
+	</body>
+</html>
