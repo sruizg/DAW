@@ -14,11 +14,7 @@
 				<td>JS Variables</td>
 				<td>
 					<textarea style="width:100%;height:280px">
-<!DOCTYPE html>
-<html>
-<body>
-
-<p id="demo"></p>
+					TODO
 <script>
 var x = 5;
 var y = 6;
@@ -26,24 +22,21 @@ document.getElementById("demo").innerHTML = x + y;
 //document.getElementById("demo").innerHTML = x;
 //document.getElementById("demo").innerHTML = y;
 </script>
-
-<p>Try to experiment with the // comments.</p>
-</body>
-</html>
 					</textarea>
 				</td> 
-				<td></td>
+				<td>
+					TODO
+<script>
+var x = 5;
+var y = 6;
+document.getElementById("demo").innerHTML = x + y;
+</script>
+				</td>
 			</tr>
 			<tr>
 				<td>JS Data Types</td>
 				<td>
-				<textarea style="width:100%;height:280px">
-<!DOCTYPE html>
-<html>
-<body>
-
-<p id="demo"></p>
-
+				<textarea style="width:100%;height:100%">
 <script>
 //-----------------//
 //JavaScript Strings
@@ -61,7 +54,7 @@ coche + "<br>" + respuesta;
 //Numbers can be written with, or without decimals:
 var x1 = 34.00;
 var x2 = 34;
-//Extra large or extra small numbers can be written with scientific (exponential) notation:
+//Extra large or extra small numbers (exponential) notation:
 var y = 123e5;
 var z = 123e-5;
 
@@ -112,7 +105,7 @@ person + "<br>" + car + "<br>" + x;
 //-----------------//
 //The typeof Operator
 //-----------------//
-//You can use the JavaScript typeof operator to find the type of a JavaScript variable.
+//Typeof operator to find the type of a JavaScript variable.
 function myFunction() {
     document.getElementById("demo").innerHTML = 
     typeof "john" + "<br>" + 
@@ -124,79 +117,553 @@ function myFunction() {
 //-----------------//
 //Do Not Declare String, Number, and Boolean as Objects!
 //-----------------//
-//When a JavaScript variable is declared with the keyword "new", the variable is created as an object:
+//When a JavaScript variable is declared with the keyword "new",
+//the variable is created as an object:
 var x = new String();          // Declares x as a String object
 var y = new Number();          // Declares y as a Number object
 var z = new Boolean();         // Declares z as a Boolean object
 
 </script>
-
-</body>
-</html>
 				</textarea>
 				</td> 
 				<td>
-				<textarea style="height:280px">
-Volvo XC60
-It's alright
+<p id="demo"></p>
+<script>
+var coche = 'Volvo XC60';
+var respuesta = "It's alright";
 
-34
-34
-12300000
-0.00123
+document.getElementById("demo").innerHTML =
+coche + "<br>" + respuesta;
+</script>
 
-Saab
+<p id="demo2"></p>
+<script>
+var x1 = 34.00;
+var x2 = 34;
+var y = 123e5;
+var z = 123e-5;
 
-John is 50 years old.
+document.getElementById("demo2").innerHTML =
+x1 + "<br>" + x2 + "<br>" + y + "<br>" + z;
+</script>
 
-undefined
-Volvo
-null
+<p id="demo3"></p>
+<script>
+var tru = true;
+var fals = false;
 
-string
-number
-boolean
-object
-object
-				</textarea>
+document.getElementById("demo3").innerHTML =
+tru + "<br>" + fals;
+</script>
+
+<p id="demo4"></p>
+<script>
+var cars = ["Saab","Volvo","BMW"];
+
+document.getElementById("demo4").innerHTML = cars[0];
+</script>
+
+<p id="demo5"></p>
+<script>
+var person = {
+    firstName : "John",
+    lastName  : "Doe",
+    age       : 50,
+    eyeColor  : "blue"
+};
+
+document.getElementById("demo5").innerHTML =
+person.firstName + " is " + person.age + " years old.";
+</script>
+
+<p id="demo6"></p>
+<script>
+var person2;
+var car = "Volvo";
+var x3 = null;
+document.getElementById("demo6").innerHTML =
+person2 + "<br>" + car + "<br>" + x3;
+</script>
+
+<p id="demo7"></p>
+<script>
+function myFunction() {
+    document.getElementById("demo7").innerHTML = 
+    typeof "john" + "<br>" + 
+    typeof 3.14 + "<br>" +
+    typeof false + "<br>" +
+    typeof [1,2,3,4] + "<br>" +
+    typeof {name:'john', age:34};
+</script>
 				</td>
 			</tr>
 			<tr>
 				<td>JS Objects</td>
 				<td>
 				<textarea style="width:100%;height:280px">
+<script>
+//-----------------//
+//JavaScript Objects
+//-----------------//
+//Objects are variables too. But objects can contain many values (many variables).
+//En el ejemplo: 3 valores se le asignan a la variable car y 3 variables.
+//Spaces and line breaks are not important. An object definition can span multiple lines:
+
+var person = {firstName:"Sergio",
+			  lastName:"Ruiz", age:22, eyeColor:"blue",
+			  fullName : function()
+						{
+							return this.firstName + " " + this.lastName;}
+			};
+
+document.getElementById("demo31").innerHTML =
+person.firstName + " " + person.lastName + " tiene " + person.age + " años.";
+
+//-----------------//
+//Object Properties
+//-----------------//
+//But, it is more common to say: "JavaScript objects are containers for named values.
+//Named values are written as name : value pairs (name and value separated by a colon).
+//The name value pairs, in JavaScript objects, are called object properties.
+NO EXAMPLE
+
+//-----------------//
+//Accessing Object Properties
+//-----------------//
+//You can access object properties in two ways:
+person.lastName;
+person["lastName"];
+
+//-----------------//
+//Object Methods
+//-----------------//
+//La primera llama al resultado de la función.
+//La segunda muestra el contenido de la función, la trata como una variable String.
+name = person.fullName();
+name = person.fullName;
+
+//-----------------//
+//Accessing Object Methods
+//-----------------//
+//You create an object method with the following syntax:
+methodName : function() { code lines }
+//You access an object method with the following syntax:
+objectName.methodName()
+</script>
 				</textarea>
 				</td>
-				<td></td>
+				<td>
+<p id="demo31"></p>
+<p id="demo32"></p>
+<p id="demo33"></p>
+<script>
+var person = {firstName:"Sergio",
+			  lastName:"Ruiz", age:22, eyeColor:"blue",
+			  fullName : function()
+						{
+							return this.firstName + " " + this.lastName;}
+			};
+
+document.getElementById("demo31").innerHTML =
+person.firstName + " " + person.lastName + " tiene " + person.age + " años.";
+
+document.getElementById("demo32").innerHTML = person.fullName();
+
+document.getElementById("demo33").innerHTML = person.fullName;
+</script>
+				</td>
 			</tr>
 			<tr>
 				<td>JS Functions</td>
 				<td>
 				<textarea style="width:100%;height:280px">
+<script>
+//-----------------//
+//JavaScript Functions
+//-----------------//
+//A JavaScript function is a block of code designed to perform a particular task.
+//A JavaScript function is executed when "something" invokes it (calls it).
+function myFunction(a, b) {
+    return a * b;
+}
+document.getElementById("demo41").innerHTML = myFunction(4, 3);
+
+//-----------------//
+//JavaScript Function Syntax
+//-----------------//
+functionName(parameter1, parameter2, parameter3) {
+    code to be executed
+}
+
+//-----------------//
+//Function Return
+//-----------------//
+
+var x = myFunction(4, 3);        // Function is called, return value will end up in x
+
+function myFunction(a, b) {
+    return a * b;                // Function returns the product of a and b
+}
+
+document.getElementById("demo42").innerHTML = x;
+
+//-----------------//
+//JavaScript Functions are Objects
+//-----------------//
+//JavaScript, functions are objects.
+//JavaScript functions have properties and methods.
+//You can add your own properties and methods to functions.
+
+//-----------------//
+//JavaScript Functions are Variables Too
+//-----------------//
+//In JavaScript, functions can be used as variables:
+document.getElementById("demo43").innerHTML =
+"The temperature is " + toCelsius(32) + " Centigrade";
+
+function toCelsius(fahrenheit) {
+    return (5/9) * (fahrenheit-32);
+} 
+</script>
 				</textarea>
 				</td>
-				<td></td>
+				<td>
+<p id="demo41"></p>
+<p id="demo42"></p>
+<p id="demo43"></p>
+<script>
+function myFunction(a, b) {
+    return a * b;
+}
+document.getElementById("demo41").innerHTML = myFunction(4, 3);
+var x = myFunction(4, 3);        // Function is called, return value will end up in x
+document.getElementById("demo42").innerHTML = x;
+document.getElementById("demo43").innerHTML =
+"The temperature is " + toCelsius(32) + " Centigrade";
+function toCelsius(fahrenheit) {
+    return (5/9) * (fahrenheit-32);
+} 
+</script>
+				</td>
 			</tr>
 			<tr>
 				<td>JS Operators</td>
 				<td>
-				<textarea style="width:100%;height:280px">
+				<textarea style="width:100%;height:100%">
+<script>
+//-----------------//
+//JavaScript Operators
+//-----------------//
+//= is used to assign values, + is used to add values, ++ is used to increment values.
+y = 5;           // assign the value 5 to y
+z = 2;           // assign the value 2 to z
+x = y + z;       // assign the value 7 (y + z) to x
+document.getElementById("demo51").innerHTML = x;
+
+//-----------------//
+//JavaScript Arithmetic Operators
+//-----------------//
++	Addition	x = y + 2
+-	Subtraction	x = y - 2
+*	Multiplication	x = y * 2
+/	Division	x = y / 2
+%	Modulus (division remainder)	x = y % 2
+++	Increment	x = ++y or x = y++
+--	Decrement	x = --y or x = y--
+//Diferencia entre antes o después: (caso suma)
+//Antes suma el valor al instante, después lo suma más tarde.
+
+function myFunction() {
+    var a = 5;
+    var b = ++y;
+    document.getElementById("demo52").innerHTML = "a= " + a;
+    document.getElementById("demo53").innerHTML = "b= " + b;
+    var c = 5;
+    var d = y++;
+    document.getElementById("demo54").innerHTML = "c= " + c;
+    document.getElementById("demo55").innerHTML = "d= " + d;
+	var e = y % 2;
+	document.getElementById("demo56").innerHTML = "e= " + e;
+}
+myFunction();
+//-----------------//
+//JavaScript Assignment Operators
+//-----------------//
+
+function myFunction2() {
+    var x = 10;
+    var y = 5;
+    x = y;
+    document.getElementById("demo57").innerHTML = x;
+	var x = 10;
+    var y = 5;
+	x += y;
+    document.getElementById("demo58").innerHTML = x;
+	var x = 10;
+    var y = 5;
+	x -= y;
+    document.getElementById("demo59").innerHTML = x;
+	var x = 10;
+    var y = 5;
+	x *= y;
+    document.getElementById("demo511").innerHTML = x;
+	var x = 10;
+    var y = 5;
+	x /= y;
+    document.getElementById("demo512").innerHTML = x;
+	var x = 10;
+    var y = 5;
+	x %= y;
+    document.getElementById("demo513").innerHTML = x;
+}
+myFunction2();
+
+//-----------------//
+//JavaScript String Operators
+//-----------------//
+//The + operator can also be used to concatenate (add) strings.
+
+function myFunction3() {
+    var txt1 = "Primero ";
+    txt2 = "Segundo ";
+	txt1 += "Tercero";
+    document.getElementById("demo").innerHTML = txt1 + txt2;
+	
+	var x = 5 + 5;
+    var y = "5" + 5;
+    var z = "Hola" + 5;
+
+    document.getElementById("demo").innerHTML =
+    x + "<br>" +
+    y + "<br>" +
+    z;
+}
+
+myFunction3();
+
+//-----------------//
+//JavaScript Bitwise Operators
+//-----------------//
+//Any numeric operand in the operation is converted into a 32 bit number.
+document.getElementById("demo").innerHTML = 5 & 1;
+Operator	Description	Example		Same as		Result	Decimal
+&		AND		x = 5 & 1	0101 & 0001	0001	1
+|		OR		x = 5 | 1	0101 | 0001	0101	5
+~		NOT		x = ~ 5	 	~0101		1010	10
+^		XOR		x = 5 ^ 1	0101 ^ 0001	0100	4
+<<		Left shift	x = 5 << 1	0101 << 1	1010	10
+>>		Right shift	x = 5 >> 1	0101 >> 1	0010	2
+
+//-----------------//
+//The typeof operator
+//-----------------//
+//The typeof operator returns the type of a variable (or an expression):
+var x = 5;
+var y = "John";
+typeof x                      // Returns number
+typeof y                      // Returns string
+typeof 3.14                   // Returns number
+typeof false                  // Returns boolean
+typeof [1,2,3,4]              // Returns object
+typeof {name:'john', age:34}  // Returns object
+
+//-----------------//
+//The delete Operator
+//-----------------//
+//The delete operator can be used to delete properties from objects:
+var person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
+delete person.age;
+
+//-----------------//
+//The Unary + Operator
+//-----------------//
+//The unary + operator can be used to convert a variable to a number:
+var y = "5";      // y is a string
+var x = + y;      // x is a number
+//Si no puede ser convertido, será número pero con valor NaN (Not a number):
+var y = "John";   // y is a string
+var x = + y;      // x is a number (NaN)
+</script>
 				</textarea>
 				</td>
-				<td></td>
+				<td>
+<p id="demo51"></p>
+<p id="demo52"></p>
+<p id="demo53"></p>
+<p id="demo54"></p>
+<p id="demo55"></p>
+<p id="demo56"></p>
+<p id="demo57"></p>
+<p id="demo58"></p>
+<p id="demo59"></p>
+<p id="demo511"></p>
+<p id="demo512"></p>
+<p id="demo513"></p>
+<p id="demo514"></p>
+<p id="demo515"></p>
+<p id="demo516"></p>
+<p id="demo517"></p>
+<p id="demo518"></p>
+<script>
+y = 5;           // assign the value 5 to y
+z = 2;           // assign the value 2 to z
+x = y + z;       // assign the value 7 (y + z) to x
+document.getElementById("demo51").innerHTML = x;
+document.getElementById("demo52").innerHTML = "myFunction";
+function myFunction() {
+    var a = 5;
+    var b = ++y;
+    document.getElementById("demo53").innerHTML = "a= " + a;
+    document.getElementById("demo54").innerHTML = "b= " + b;
+    var c = 5;
+    var d = y++;
+    document.getElementById("demo55").innerHTML = "c= " + c;
+    document.getElementById("demo56").innerHTML = "d= " + d;
+	var e = y % 2;
+	document.getElementById("demo57").innerHTML = "e= " + e;
+}
+myFunction();
+document.getElementById("demo58").innerHTML = "myFunction2";
+function myFunction2() {
+    var x = 10;
+    var y = 5;
+    x = y;
+    document.getElementById("demo59").innerHTML = x;
+	var x = 10;
+    var y = 5;
+	x += y;
+    document.getElementById("demo511").innerHTML = x;
+	var x = 10;
+    var y = 5;
+	x -= y;
+    document.getElementById("demo512").innerHTML = x;
+	var x = 10;
+    var y = 5;
+	x *= y;
+    document.getElementById("demo511").innerHTML = x;
+	var x = 10;
+    var y = 5;
+	x /= y;
+    document.getElementById("demo513").innerHTML = x;
+	var x = 10;
+    var y = 5;
+	x %= y;
+    document.getElementById("demo514").innerHTML = x;
+}
+myFunction2();
+//-----------------//
+//JavaScript String Operators
+//-----------------//
+//The + operator can also be used to concatenate (add) strings.
+document.getElementById("demo515").innerHTML = "myFunction3";
+function myFunction3() {
+    var txt1 = "Primero ";
+    txt2 = "Segundo ";
+	txt1 += "Tercero";
+    document.getElementById("demo516").innerHTML = txt1 + txt2;
+	
+	var x = 5 + 5;
+    var y = "5" + 5;
+    var z = "Hola" + 5;
+
+    document.getElementById("demo517").innerHTML =
+    x + "<br>" +
+    y + "<br>" +
+    z;
+}
+myFunction3();
+document.getElementById("demo518").innerHTML = 5 & 1;
+</script>
+				</td>
 			</tr>
 			<tr>
 				<td>JS Comparisons</td>
 				<td>
 				<textarea style="width:100%;height:280px">
+<input id="age" value="18" />
+<button onclick="myFunction()">Try it</button>
+<script>
+//-----------------//
+//Comparison Operators
+//-----------------//
+//= is used to assign values, + is used to add values, ++ is used to increment values.
+Operator Description	Comparing	Returns
+==	equal to	x == 8		false
+			x == 5		true
+===	equal value	x === "5"	false	
+	and type	x === 5		true	
+!=	not equal	x != 8		true
+!==	not equal 	x != "5"	true	
+	val or type	x !== 5		false
+>	greaterthan	x > 8		false
+<	less than	x < 8		true
+>=	+ than or =	x >= 8		false
+<=	- than or =	x <= 8		true
+
+//-----------------//
+//How Can it be Used
+//-----------------//
+if (age < 18) text = "Too young";
+
+//-----------------//
+//Logical Operators
+//-----------------//
+Operator Description	Example
+&&	and	 	(x < 10 && y > 1) is true
+||	or		(x == 5 || y == 5) is false
+!	not	 	!(x == y) is true
+
+//-----------------//
+//Conditional Operator
+//-----------------//
+function myFunction() {
+    var age,voteable;
+    age = document.getElementById("age").value;
+    voteable = (age < 18) ? "Too young":"Old enough";
+    document.getElementById("demo").innerHTML = voteable + " to vote.";
+}
+myFunction();
+
+</script>
 				</textarea>
 				</td> 
-				<td></td>
+				<td>
+<input id="age" value="18" />
+<button onclick="myFunction()">Try it</button>
+<p id="demo61"></p>
+<script>
+function myFunction() {
+    var age,voteable;
+    age = document.getElementById("age").value;
+    voteable = (age < 18) ? "Too young":"Old enough";
+    document.getElementById("demo61").innerHTML = voteable + " to vote.";
+}
+myFunction();
+</script>
+				</td>
 			</tr>
 			<tr>
 				<td>JS Conditions</td>
 				<td>
 				<textarea style="width:100%;height:280px">
+				
+				AQUIAQUIAQUI
+<button onclick="myFunction()">Try it</button>
+<p id="demo71"></p>
+<script>
+function myFunction() {
+    var greeting;
+    var time = new Date().getHours();
+    if (time < 10) {
+        greeting = "Good morning";
+    } else if (time < 20) {
+        greeting = "Good day";
+    } else {
+        greeting ="Good evening";
+    }
+document.getElementById("demo71").innerHTML = greeting;
+}
+</script>
 				</textarea>
 				</td>
 				<td></td>
