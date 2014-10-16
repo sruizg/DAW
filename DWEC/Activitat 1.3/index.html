@@ -1,40 +1,82 @@
 <html>
 	<header>
 	<title> Activitad 1.3 </title>
+	<style>
+		#fondoVerde{
+			background-color:darkseagreen;
+			text
+		}
+		h4{
+		text-align:center;
+		text-weight:bold;
+		}
+	</style>
 	</header>
 	<body>
-		<h3> Lista de conceptos con ejemplos</h3>
+		<h2> Lista de conceptos con ejemplos</h2>
 		<table border="1" style="width:100%">
 			<tr>
-				<td width="100px">Concepto</td>
-				<td width="900px">Código</td> 
-				<td width="100px">Resultado</td>
+				<td id="fondoVerde" width="150px"> <h4>Concepto</h4> </td>
+				<td id="fondoVerde" width="900px"> <h4>Código</h4> </td> 
+				<td id="fondoVerde" width="100px"> <h4>Resultado</h4> </td>
 			</tr>
 			<tr>
-				<td>JS Variables</td>
+				<td id="fondoVerde"> <h4>JS Variables</h4></td>
 				<td>
 					<textarea style="width:100%;height:280px">
-					TODO
+<p id="demo1"></p>
+<p id="demo12"></p>
+<p id="demo13"></p>
+<p id="demo14"></p>
 <script>
+//Integers
 var x = 5;
 var y = 6;
-document.getElementById("demo").innerHTML = x + y;
-//document.getElementById("demo").innerHTML = x;
-//document.getElementById("demo").innerHTML = y;
+document.getElementById("demo1").innerHTML = x + y;
+//Decimales
+var pi = 3.14;
+document.getElementById("demo12").innerHTML = pi;
+//Strings
+var text = "";
+var persona = "Pep";
+var frase = 'Hola que tal!';
+document.getElementById("demo13").innerHTML = persona + " " + frase;
+//Se puede declarar en la misma línea
+var lastName = "Doe", age = 30, job = "carpenter";
+//indefinido
+var carName;
+document.getElementById("demo14").innerHTML = carName;
 </script>
 					</textarea>
 				</td> 
 				<td>
-					TODO
-<script>
-var x = 5;
-var y = 6;
-document.getElementById("demo").innerHTML = x + y;
-</script>
+				<p id="demo1"></p>
+				<p id="demo12"></p>
+				<p id="demo13"></p>
+				<p id="demo14"></p>
+				<script>
+					//Integers
+					var x = 5;
+					var y = 6;
+					document.getElementById("demo1").innerHTML = x + y;
+					//Decimales
+					var pi = 3.14;
+					document.getElementById("demo12").innerHTML = pi;
+					//Strings
+					var text = "";
+					var persona = "Pep";
+					var frase = 'Que tal?!';
+					document.getElementById("demo13").innerHTML = persona + " " + frase;
+					//Se puede declarar en la misma línea
+					var lastName = "Doe", age = 30, job = "carpenter";
+					//indefinido
+					var carName;
+					document.getElementById("demo14").innerHTML = carName;
+				</script>
 				</td>
 			</tr>
 			<tr>
-				<td>JS Data Types</td>
+				<td id="fondoVerde"> <h4>JS Data Types</h4></td>
 				<td>
 				<textarea style="width:100%;height:100%">
 <script>
@@ -127,78 +169,78 @@ var z = new Boolean();         // Declares z as a Boolean object
 				</textarea>
 				</td> 
 				<td>
-<p id="demo"></p>
-<script>
-var coche = 'Volvo XC60';
-var respuesta = "It's alright";
+				<p id="demo"></p>
+				<script>
+					var coche = 'Volvo XC60';
+					var respuesta = "It's alright";
 
-document.getElementById("demo").innerHTML =
-coche + "<br>" + respuesta;
-</script>
+					document.getElementById("demo").innerHTML =
+					coche + "<br>" + respuesta;
+				</script>
 
-<p id="demo2"></p>
-<script>
-var x1 = 34.00;
-var x2 = 34;
-var y = 123e5;
-var z = 123e-5;
+				<p id="demo2"></p>
+				<script>
+					var x1 = 34.00;
+					var x2 = 34;
+					var y = 123e5;
+					var z = 123e-5;
 
-document.getElementById("demo2").innerHTML =
-x1 + "<br>" + x2 + "<br>" + y + "<br>" + z;
-</script>
+					document.getElementById("demo2").innerHTML =
+					x1 + "<br>" + x2 + "<br>" + y + "<br>" + z;
+				</script>
 
-<p id="demo3"></p>
-<script>
-var tru = true;
-var fals = false;
+				<p id="demo3"></p>
+				<script>
+					var tru = true;
+					var fals = false;
 
-document.getElementById("demo3").innerHTML =
-tru + "<br>" + fals;
-</script>
+					document.getElementById("demo3").innerHTML =
+					tru + "<br>" + fals;
+				</script>
 
-<p id="demo4"></p>
-<script>
-var cars = ["Saab","Volvo","BMW"];
+				<p id="demo4"></p>
+				<script>
+					var cars = ["Saab","Volvo","BMW"];
 
-document.getElementById("demo4").innerHTML = cars[0];
-</script>
+					document.getElementById("demo4").innerHTML = cars[0];
+				</script>
 
-<p id="demo5"></p>
-<script>
-var person = {
-    firstName : "John",
-    lastName  : "Doe",
-    age       : 50,
-    eyeColor  : "blue"
-};
+				<p id="demo5"></p>
+				<script>
+					var person = {
+						firstName : "John",
+						lastName  : "Doe",
+						age       : 50,
+						eyeColor  : "blue"
+					};
 
-document.getElementById("demo5").innerHTML =
-person.firstName + " is " + person.age + " years old.";
-</script>
+					document.getElementById("demo5").innerHTML =
+					person.firstName + " is " + person.age + " years old.";
+				</script>
 
-<p id="demo6"></p>
-<script>
-var person2;
-var car = "Volvo";
-var x3 = null;
-document.getElementById("demo6").innerHTML =
-person2 + "<br>" + car + "<br>" + x3;
-</script>
+				<p id="demo6"></p>
+				<script>
+					var person2;
+					var car = "Volvo";
+					var x3 = null;
+					document.getElementById("demo6").innerHTML =
+					person2 + "<br>" + car + "<br>" + x3;
+				</script>
 
-<p id="demo7"></p>
-<script>
-function myFunction() {
-    document.getElementById("demo7").innerHTML = 
-    typeof "john" + "<br>" + 
-    typeof 3.14 + "<br>" +
-    typeof false + "<br>" +
-    typeof [1,2,3,4] + "<br>" +
-    typeof {name:'john', age:34};
-</script>
+				<p id="demo7"></p>
+				<script>
+					function myFunction() {
+						document.getElementById("demo7").innerHTML = 
+						typeof "john" + "<br>" + 
+						typeof 3.14 + "<br>" +
+						typeof false + "<br>" +
+						typeof [1,2,3,4] + "<br>" +
+						typeof {name:'john', age:34};
+				</script>
 				</td>
 			</tr>
 			<tr>
-				<td>JS Objects</td>
+				<td id="fondoVerde"> <h4>JS Objects</h4></td>
 				<td>
 				<textarea style="width:100%;height:280px">
 <script>
@@ -209,7 +251,7 @@ function myFunction() {
 //En el ejemplo: 3 valores se le asignan a la variable car y 3 variables.
 //Spaces and line breaks are not important. An object definition can span multiple lines:
 
-var person = {firstName:"Sergio",
+var person = {firstName:"Pepe",
 			  lastName:"Ruiz", age:22, eyeColor:"blue",
 			  fullName : function()
 						{
@@ -253,28 +295,25 @@ objectName.methodName()
 				</textarea>
 				</td>
 				<td>
-<p id="demo31"></p>
-<p id="demo32"></p>
-<p id="demo33"></p>
-<script>
-var person = {firstName:"Sergio",
-			  lastName:"Ruiz", age:22, eyeColor:"blue",
-			  fullName : function()
-						{
-							return this.firstName + " " + this.lastName;}
-			};
-
-document.getElementById("demo31").innerHTML =
-person.firstName + " " + person.lastName + " tiene " + person.age + " años.";
-
-document.getElementById("demo32").innerHTML = person.fullName();
-
-document.getElementById("demo33").innerHTML = person.fullName;
-</script>
+				<p id="demo31"></p>
+				<p id="demo32"></p>
+				<p id="demo33"></p>
+				<script>
+					var person = {firstName:"Pepe",
+								  lastName:"Ruiz", age:22, eyeColor:"blue",
+								  fullName : function()
+											{
+												return this.firstName + " " + this.lastName;}
+								};
+					document.getElementById("demo31").innerHTML =
+					person.firstName + " " + person.lastName + " tiene " + person.age + " años.";
+					document.getElementById("demo32").innerHTML = person.fullName();
+					document.getElementById("demo33").innerHTML = person.fullName;
+				</script>
 				</td>
 			</tr>
 			<tr>
-				<td>JS Functions</td>
+				<td id="fondoVerde"> <h4>JS Functions</h4></td>
 				<td>
 				<textarea style="width:100%;height:280px">
 <script>
@@ -328,26 +367,26 @@ function toCelsius(fahrenheit) {
 				</textarea>
 				</td>
 				<td>
-<p id="demo41"></p>
-<p id="demo42"></p>
-<p id="demo43"></p>
-<script>
-function myFunction(a, b) {
-    return a * b;
-}
-document.getElementById("demo41").innerHTML = myFunction(4, 3);
-var x = myFunction(4, 3);        // Function is called, return value will end up in x
-document.getElementById("demo42").innerHTML = x;
-document.getElementById("demo43").innerHTML =
-"The temperature is " + toCelsius(32) + " Centigrade";
-function toCelsius(fahrenheit) {
-    return (5/9) * (fahrenheit-32);
-} 
-</script>
+				<p id="demo41"></p>
+				<p id="demo42"></p>
+				<p id="demo43"></p>
+				<script>
+					function myFunction(a, b) {
+						return a * b;
+					}
+					document.getElementById("demo41").innerHTML = myFunction(4, 3);
+					var x = myFunction(4, 3);        // Function is called, return value will end up in x
+					document.getElementById("demo42").innerHTML = x;
+					document.getElementById("demo43").innerHTML =
+					"The temperature is " + toCelsius(32) + " Centigrade";
+					function toCelsius(fahrenheit) {
+					    return (5/9) * (fahrenheit-32);
+					} 
+				</script>
 				</td>
 			</tr>
 			<tr>
-				<td>JS Operators</td>
+				<td id="fondoVerde"> <h4>JS Operators</h4></td>
 				<td>
 				<textarea style="width:100%;height:100%">
 <script>
@@ -487,101 +526,101 @@ var x = + y;      // x is a number (NaN)
 				</textarea>
 				</td>
 				<td>
-<p id="demo51"></p>
-<p id="demo52"></p>
-<p id="demo53"></p>
-<p id="demo54"></p>
-<p id="demo55"></p>
-<p id="demo56"></p>
-<p id="demo57"></p>
-<p id="demo58"></p>
-<p id="demo59"></p>
-<p id="demo511"></p>
-<p id="demo512"></p>
-<p id="demo513"></p>
-<p id="demo514"></p>
-<p id="demo515"></p>
-<p id="demo516"></p>
-<p id="demo517"></p>
-<p id="demo518"></p>
-<script>
-y = 5;           // assign the value 5 to y
-z = 2;           // assign the value 2 to z
-x = y + z;       // assign the value 7 (y + z) to x
-document.getElementById("demo51").innerHTML = x;
-document.getElementById("demo52").innerHTML = "myFunction";
-function myFunction() {
-    var a = 5;
-    var b = ++y;
-    document.getElementById("demo53").innerHTML = "a= " + a;
-    document.getElementById("demo54").innerHTML = "b= " + b;
-    var c = 5;
-    var d = y++;
-    document.getElementById("demo55").innerHTML = "c= " + c;
-    document.getElementById("demo56").innerHTML = "d= " + d;
-	var e = y % 2;
-	document.getElementById("demo57").innerHTML = "e= " + e;
-}
-myFunction();
-document.getElementById("demo58").innerHTML = "myFunction2";
-function myFunction2() {
-    var x = 10;
-    var y = 5;
-    x = y;
-    document.getElementById("demo59").innerHTML = x;
-	var x = 10;
-    var y = 5;
-	x += y;
-    document.getElementById("demo511").innerHTML = x;
-	var x = 10;
-    var y = 5;
-	x -= y;
-    document.getElementById("demo512").innerHTML = x;
-	var x = 10;
-    var y = 5;
-	x *= y;
-    document.getElementById("demo511").innerHTML = x;
-	var x = 10;
-    var y = 5;
-	x /= y;
-    document.getElementById("demo513").innerHTML = x;
-	var x = 10;
-    var y = 5;
-	x %= y;
-    document.getElementById("demo514").innerHTML = x;
-}
-myFunction2();
-//-----------------//
-//JavaScript String Operators
-//-----------------//
-//The + operator can also be used to concatenate (add) strings.
-document.getElementById("demo515").innerHTML = "myFunction3";
-function myFunction3() {
-    var txt1 = "Primero ";
-    txt2 = "Segundo ";
-	txt1 += "Tercero";
-    document.getElementById("demo516").innerHTML = txt1 + txt2;
-	
-	var x = 5 + 5;
-    var y = "5" + 5;
-    var z = "Hola" + 5;
+				<p id="demo51"></p>
+				<p id="demo52"></p>
+				<p id="demo53"></p>
+				<p id="demo54"></p>
+				<p id="demo55"></p>
+				<p id="demo56"></p>
+				<p id="demo57"></p>
+				<p id="demo58"></p>
+				<p id="demo59"></p>
+				<p id="demo511"></p>
+				<p id="demo512"></p>
+				<p id="demo513"></p>
+				<p id="demo514"></p>
+				<p id="demo515"></p>
+				<p id="demo516"></p>
+				<p id="demo517"></p>
+				<p id="demo518"></p>
+				<script>
+					y = 5;           // assign the value 5 to y
+					z = 2;           // assign the value 2 to z
+					x = y + z;       // assign the value 7 (y + z) to x
+					document.getElementById("demo51").innerHTML = x;
+					document.getElementById("demo52").innerHTML = "myFunction";
+					function myFunction() {
+						var a = 5;
+						var b = ++y;
+						document.getElementById("demo53").innerHTML = "a= " + a;
+						document.getElementById("demo54").innerHTML = "b= " + b;
+						var c = 5;
+						var d = y++;
+						document.getElementById("demo55").innerHTML = "c= " + c;
+						document.getElementById("demo56").innerHTML = "d= " + d;
+						var e = y % 2;
+						document.getElementById("demo57").innerHTML = "e= " + e;
+					}
+					myFunction();
+					document.getElementById("demo58").innerHTML = "myFunction2";
+					function myFunction2() {
+						var x = 10;
+						var y = 5;
+						x = y;
+						document.getElementById("demo59").innerHTML = x;
+						var x = 10;
+						var y = 5;
+						x += y;
+						document.getElementById("demo511").innerHTML = x;
+						var x = 10;
+						var y = 5;
+						x -= y;
+						document.getElementById("demo512").innerHTML = x;
+						var x = 10;
+						var y = 5;
+						x *= y;
+						document.getElementById("demo511").innerHTML = x;
+						var x = 10;
+						var y = 5;
+						x /= y;
+						document.getElementById("demo513").innerHTML = x;
+						var x = 10;
+						var y = 5;
+						x %= y;
+						document.getElementById("demo514").innerHTML = x;
+					}
+					myFunction2();
+					//-----------------//
+					//JavaScript String Operators
+					//-----------------//
+					//The + operator can also be used to concatenate (add) strings.
+					document.getElementById("demo515").innerHTML = "myFunction3";
+					function myFunction3() {
+						var txt1 = "Primero ";
+						txt2 = "Segundo ";
+						txt1 += "Tercero";
+						document.getElementById("demo516").innerHTML = txt1 + txt2;
+						
+						var x = 5 + 5;
+						var y = "5" + 5;
+						var z = "Hola" + 5;
 
-    document.getElementById("demo517").innerHTML =
-    x + "<br>" +
-    y + "<br>" +
-    z;
-}
-myFunction3();
-document.getElementById("demo518").innerHTML = 5 & 1;
-</script>
+						document.getElementById("demo517").innerHTML =
+						x + "<br>" +
+						y + "<br>" +
+						z;
+					}
+					myFunction3();
+					document.getElementById("demo518").innerHTML = 5 & 1;
+				</script>
 				</td>
 			</tr>
 			<tr>
-				<td>JS Comparisons</td>
+				<td id="fondoVerde"> <h4>JS Comparisons</h4></td>
 				<td>
 				<textarea style="width:100%;height:280px">
 <input id="age" value="18" />
-<button onclick="myFunction()">Try it</button>
+<button onclick="myFunction6()">Try it</button>
 <script>
 //-----------------//
 //Comparison Operators
@@ -616,7 +655,7 @@ Operator Description	Example
 //-----------------//
 //Conditional Operator
 //-----------------//
-function myFunction() {
+function myFunction6() {
     var age,voteable;
     age = document.getElementById("age").value;
     voteable = (age < 18) ? "Too young":"Old enough";
@@ -628,30 +667,28 @@ myFunction();
 				</textarea>
 				</td> 
 				<td>
-<input id="age" value="18" />
-<button onclick="myFunction()">Try it</button>
-<p id="demo61"></p>
-<script>
-function myFunction() {
-    var age,voteable;
-    age = document.getElementById("age").value;
-    voteable = (age < 18) ? "Too young":"Old enough";
-    document.getElementById("demo61").innerHTML = voteable + " to vote.";
-}
-myFunction();
-</script>
+				<input id="age" value="18" />
+				<button onclick="myFunction6()">Try it</button>
+				<p id="demo61"></p>
+				<script>
+					function myFunction6() {
+						var age,voteable;
+						age = document.getElementById("age").value;
+						voteable = (age < 18) ? "Too young":"Old enough";
+						document.getElementById("demo61").innerHTML = voteable + " to vote.";
+					}
+					myFunction();
+				</script>
 				</td>
 			</tr>
 			<tr>
-				<td>JS Conditions</td>
+				<td id="fondoVerde"> <h4>JS Conditions</h4></td>
 				<td>
 				<textarea style="width:100%;height:280px">
-				
-				AQUIAQUIAQUI
-<button onclick="myFunction()">Try it</button>
+<button onclick="myFunction7()">Try it</button>
 <p id="demo71"></p>
 <script>
-function myFunction() {
+function myFunction7() {
     var greeting;
     var time = new Date().getHours();
     if (time < 10) {
@@ -666,31 +703,249 @@ document.getElementById("demo71").innerHTML = greeting;
 </script>
 				</textarea>
 				</td>
-				<td></td>
+				<td>
+					<button onclick="myFunction7()">Click</button>
+					<p id="demo71"></p>
+					<script>
+						function myFunction7() {
+							var greeting;
+							var time = new Date().getHours();
+							if (time < 10) {
+								greeting = "Good morning";
+							} else if (time < 20) {
+								greeting = "Good day";
+							} else {
+								greeting ="Good evening";
+							}
+						document.getElementById("demo71").innerHTML = greeting;
+						}
+					</script>
+				</td>
 			</tr>
 			<tr>
-				<td>JS Switch</td>
+				<td id="fondoVerde"> <h4>JS Switch</h4></td>
 				<td>
 				<textarea style="width:100%;height:280px">
+<button onclick="myFunction8()">Click</button>
+<p id="demo81"></p>
+<script>
+function myFunction8() {
+	var text;
+	switch (new Date().getDay()) {
+	case 1:
+		text = "Hoy es Lunes";
+		break;
+	case 2:
+		text = "Hoy es Martes";
+		break;
+	case 3:
+		text = "Hoy es Miercoles";
+		break;
+	case 4:
+		text = "Hoy es Jueves";
+		break;
+	case 5:
+		text = "Hoy es Viernes";
+		break;
+	case 6:
+	case 0:
+		text = "Es fin de semana!";
+		break;
+	default:
+		text = "Aún queda para el fin de semana";
+	}
+	document.getElementById("demo81").innerHTML = text;
+}
+</script>
 				</textarea>
 				</td>
-				<td></td>
+				<td>
+				<button onclick="myFunction8()">Click</button>
+				<p id="demo81"></p>
+				<script>
+					function myFunction8() {
+						var text;
+						switch (new Date().getDay()) {
+						case 1:
+							text = "Hoy es Lunes";
+							break;
+						case 2:
+							text = "Hoy es Martes";
+							break;
+						case 3:
+							text = "Hoy es Miercoles";
+							break;
+						case 4:
+							text = "Hoy es Jueves";
+							break;
+						case 5:
+							text = "Hoy es Viernes";
+							break;
+						case 6:
+						case 0:
+							text = "Es fin de semana!";
+							break;
+						default:
+							text = "Aún queda para el fin de semana";
+						}
+						document.getElementById("demo81").innerHTML = text;
+					}
+				</script>
+				</td>
 			</tr>
 			<tr>
-				<td>JS Loop For</td>
+				<td id="fondoVerde"> <h4>JS Loop For</h4></td>
 				<td>
 				<textarea style="width:100%;height:280px">
+<p id="demo91"></p>
+<p id="demo92"></p>
+<button onclick="myFunction()">Try it</button>
+<p id="demo93"></p>
+<script>
+var len = cars.length;
+var text = "";
+
+for (; i < len; i++) {
+    text += cars[i] + "<br>";
+}
+
+document.getElementById("demo91").innerHTML = text;
+
+var txt2 = "";
+var person = {fname:"Pepe", lname:"Ruiz", age:22}; 
+var x;
+for (x in person) {
+    txt2 += person[x] + " ";
+}
+document.getElementById("demo92").innerHTML = txt2;
+
+function myFunction() {
+    var text = "";
+    var i;
+    for (i = 0; i < 5; i++) {
+        text += "El número es " + i + "<br>";
+    }
+    document.getElementById("demo93").innerHTML = text;
+}
+</script>
 				</textarea>
 				</td>
-				<td></td>
+				<td>
+				<p id="demo91"></p>
+				<p id="demo92"></p>
+				<button onclick="myFunction()">Try it</button>
+				<p id="demo93"></p>
+				<script>
+					cars = ["BMW", "Volvo", "Saab", "Ford"];
+					var i = 2;
+					var len = cars.length;
+					var text = "";
+
+					for (; i < len; i++) {
+						text += cars[i] + "<br>";
+					}
+
+					document.getElementById("demo91").innerHTML = text;
+
+					var txt2 = "";
+					var person = {fname:"Pepe", lname:"Ruiz", age:22}; 
+					var x;
+					for (x in person) {
+						txt2 += person[x] + " ";
+					}
+					document.getElementById("demo92").innerHTML = txt2;
+
+					function myFunction() {
+						var text = "";
+						var i;
+						for (i = 0; i < 5; i++) {
+							text += "El número es " + i + "<br>";
+						}
+						document.getElementById("demo93").innerHTML = text;
+					}
+				</script>
+				</td>
 			</tr>
 			<tr>
-				<td>JS Loop While</td>
+				<td id="fondoVerde"> <h4>JS Loop While</h4></td>
 				<td>
 				<textarea style="width:100%;height:280px">
+<p id="demo101"></p>
+<button onclick="myFunction101()">Try it</button>
+<p id="demo102"></p>
+<button onclick="myFunction102()">Try it</button>
+<p id="demo103"></p>
+<script>
+cars = ["BMW","Volvo","Saab","Ford"];
+var i = 0;
+var text = "";
+while (cars[i]) {
+    text += cars[i] + "<br>";
+    i++;
+}
+document.getElementById("demo101").innerHTML = text;
+
+function myFunction101() {
+    var text = "";
+    var i = 0;
+    while (i < 3) {
+        text += "<br>El número es " + i;
+        i++;
+    }
+    document.getElementById("demo102").innerHTML = text;
+}
+
+function myFunction102() {
+    var text = ""
+    var i = 0;
+    do {
+        text += "<br>El número es " + i;
+        i++;
+    }
+    while (i < 3)  
+    document.getElementById("demo103").innerHTML = text;
+}
+</script>
 				</textarea>
 				</td>
-				<td></td>
+				<td>
+					<p id="demo101"></p>
+					<button onclick="myFunction101()">Try it</button>
+					<p id="demo102"></p>
+					<button onclick="myFunction102()">Try it</button>
+					<p id="demo103"></p>
+					<script>
+						cars = ["BMW","Volvo","Saab","Ford"];
+						var i = 0;
+						var text = "";
+						while (cars[i]) {
+							text += cars[i] + "<br>";
+							i++;
+						}
+						document.getElementById("demo101").innerHTML = text;
+
+						function myFunction101() {
+							var text = "";
+							var i = 0;
+							while (i < 3) {
+								text += "El número es " + i + "<br>";
+								i++;
+							}
+							document.getElementById("demo102").innerHTML = text;
+						}
+
+						function myFunction102() {
+							var text = ""
+							var i = 0;
+							do {
+								text += "El número es " + i + "<br>";
+								i++;
+							}
+							while (i < 3)  
+							document.getElementById("demo103").innerHTML = text;
+						}
+					</script>
+				</td>
 			</tr>
 		</table>
 	</body>
