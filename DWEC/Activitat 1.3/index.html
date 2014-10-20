@@ -685,8 +685,9 @@ myFunction();
 				<td id="fondoVerde"> <h4>JS Conditions</h4></td>
 				<td>
 				<textarea style="width:100%;height:280px">
-<button onclick="myFunction7()">Try it</button>
+<button onclick="myFunction7()">Probar</button>
 <p id="demo71"></p>
+<p id="demo72"></p>
 <script>
 function myFunction7() {
     var greeting;
@@ -699,26 +700,45 @@ function myFunction7() {
         greeting ="Good evening";
     }
 document.getElementById("demo71").innerHTML = greeting;
+	
+	var mirarSiEsUndefined = 1;
+
+	if (mirarSiEsUndefined === undefined) {
+		txt = "mirarSiEsUndefined es undefined";
+	} else {
+		txt = "mirarSiEsUndefined esta definida: " + typeof mirarSiEsUndefined;
+	}
+document.getElementById("demo72").innerHTML = txt;
 }
 </script>
 				</textarea>
 				</td>
 				<td>
-					<button onclick="myFunction7()">Click</button>
+					<button onclick="myFunction7()">Probar</button>
 					<p id="demo71"></p>
+					<p id="demo72"></p>
 					<script>
-						function myFunction7() {
-							var greeting;
-							var time = new Date().getHours();
-							if (time < 10) {
-								greeting = "Good morning";
-							} else if (time < 20) {
-								greeting = "Good day";
-							} else {
-								greeting ="Good evening";
-							}
-						document.getElementById("demo71").innerHTML = greeting;
+					function myFunction7() {
+						var greeting;
+						var time = new Date().getHours();
+						if (time < 10) {
+							greeting = "Good morning";
+						} else if (time < 20) {
+							greeting = "Good day";
+						} else {
+							greeting ="Good evening";
 						}
+					document.getElementById("demo71").innerHTML = greeting;
+						
+						var mirarSiEsUndefined = 1;
+
+						if (mirarSiEsUndefined === undefined) {
+							txt = "mirarSiEsUndefined es undefined";
+						} else {
+							txt = "mirarSiEsUndefined esta definida: " + typeof mirarSiEsUndefined;
+						}
+					document.getElementById("demo72").innerHTML = txt;
+					}
 					</script>
 				</td>
 			</tr>
