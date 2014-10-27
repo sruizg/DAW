@@ -9,20 +9,17 @@
         <button onclick="ciutadaPAR()">PAR</button>
         <p id="text"></p>
         <script>
-        var elMeuContinentEs;
+        var elMeuContinentEs = "Jo sóc d\u2019una ciutat d’Europa";
         function ciutadaBCN()
         {
             var joSocDe = "Barcelona";
-            elMeuContinentEs = "Europa";
-            document.getElementById("text").innerHTML = joSocDe + ", " + elMeuContinentEs;
+            document.getElementById("text").innerHTML = elMeuContinentEs;
         }
         function ciutadaPAR()
         {
             var joSocDe = "Paris";
-            elMeuContinentEs = "Europa";
-            document.getElementById("text").innerHTML = joSocDe + ", " + elMeuContinentEs;
+            document.getElementById("text").innerHTML = elMeuContinentEs;
         }
         </script>
     </body>
 </html>
-
