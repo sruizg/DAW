@@ -10,16 +10,26 @@
         <p id="text"></p>
         <script>
         var elMeuContinentEs;
-        var joSocDe = "jo sóc d\u2019una ciutat d’Europa";
+        joSocDe = "";
         function ciutadaBCN()
         {
+            var joSocDe = "Barcelona";
+            if (this.joSocDe != joSocDe)
+            {
+                this.joSocDe = "Barcelona";
+            }
             elMeuContinentEs = "Europa";
-            document.getElementById("text").innerHTML = joSocDe;
+            document.getElementById("text").innerHTML = this.joSocDe;
         }
         function ciutadaPAR()
         {
+            joSocDe = "Paris";
+            if (this.joSocDe == joSocDe)
+            {
+                this.joSocDe = "Paris";
+            }
             elMeuContinentEs = "Europa";
-            document.getElementById("text").innerHTML = joSocDe;
+            document.getElementById("text").innerHTML = this.joSocDe;
         }
         </script>
     </body>
