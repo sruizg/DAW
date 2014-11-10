@@ -19,7 +19,6 @@
                 font-weight: bold;
             }
             p {
-                text-indent: 1cm;
                 font-weight: normal;
             }
         </style>
@@ -133,6 +132,15 @@
                         <li>Puc cridar a dues funcions callback dins d'una altra funció?
                             <p>Sí funcio(call1,call2)</p>
                         <li>Puc cridar a una funció callback amb paràmetres?
+                            <p>Sí,</br>
+                            function prueba (param1, param2) {</br>
+                                alert(param1 + " y " + param2);</br>
+                            }</br>
+                            function callbackTest (callback) {</br>
+                                callback (arguments[1], arguments[2]);</br>
+                            }</br>
+                            callbackTest (prueba, "Hola", "Adios");
+                            </p>
                         <li>Mentre s’executa una funció callback amb molt pes de treball, es poden fer altres coses amb la pàgina web? (pots fer un bucle infinit per simular una funció amb molta càrrega de treball)
                         <li>Mentre s’executa una funció assíncrona amb molt pes de treball, es poden fer altres coses amb la pàgina web? (pots fer un bucle infinit per simular una funció amb molta càrrega de treball)
                         <li>Mentre s’executa una funció clàssica amb molt pes de treball, es poden fer altres coses amb la pàgina web? (pots fer un bucle infinit per simular una funció amb molta càrrega de treball)
