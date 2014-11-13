@@ -3,7 +3,7 @@
         <title> Actividad 1.4.2 </title>
         <style>
             body {
-                background-color: aliceblue;
+                background-color: burlywood;
             }
             #tot {
                 border: 2;
@@ -20,6 +20,45 @@
             }
             p {
                 font-weight: normal;
+            }
+            .botonStyle {
+                    -moz-box-shadow:inset 0px 1px 0px 0px #a6827e;
+                    -webkit-box-shadow:inset 0px 1px 0px 0px #a6827e;
+                    box-shadow:inset 0px 1px 0px 0px #a6827e;
+                    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #7d5d3b), color-stop(1, #634b30));
+                    background:-moz-linear-gradient(top, #7d5d3b 5%, #634b30 100%);
+                    background:-webkit-linear-gradient(top, #7d5d3b 5%, #634b30 100%);
+                    background:-o-linear-gradient(top, #7d5d3b 5%, #634b30 100%);
+                    background:-ms-linear-gradient(top, #7d5d3b 5%, #634b30 100%);
+                    background:linear-gradient(to bottom, #7d5d3b 5%, #634b30 100%);
+                    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#7d5d3b', endColorstr='#634b30',GradientType=0);
+                    background-color:#7d5d3b;
+                    -moz-border-radius:3px;
+                    -webkit-border-radius:3px;
+                    border-radius:3px;
+                    border:1px solid #54381e;
+                    display:inline-block;
+                    cursor:pointer;
+                    color:#ffffff;
+                    font-family:arial;
+                    font-size:13px;
+                    padding:6px 24px;
+                    text-decoration:none;
+                    text-shadow:0px 1px 0px #4d3534;
+            }
+            .botonStyle:hover {
+                    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #634b30), color-stop(1, #7d5d3b));
+                    background:-moz-linear-gradient(top, #634b30 5%, #7d5d3b 100%);
+                    background:-webkit-linear-gradient(top, #634b30 5%, #7d5d3b 100%);
+                    background:-o-linear-gradient(top, #634b30 5%, #7d5d3b 100%);
+                    background:-ms-linear-gradient(top, #634b30 5%, #7d5d3b 100%);
+                    background:linear-gradient(to bottom, #634b30 5%, #7d5d3b 100%);
+                    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#634b30', endColorstr='#7d5d3b',GradientType=0);
+                    background-color:#634b30;
+            }
+            .botonStyle:active {
+                    position:relative;
+                    top:1px;
             }
         </style>
     </head>
@@ -104,13 +143,51 @@
                 funcioAexecutar();
                 console.log("Acaba la ejecución de asincrona()");
             }
+            
+            //-----------------------//
+            //Funciones parte opcional
+            //-----------------------//
+            function ambCallbackPruebaOpcional(funcioAexecutar)
+            {
+                console.log("Empieza la ejecución de prueba con bucle pesado");
+                funcioAexecutar();
+            }
+            function buclePesado()
+            {
+                for (i = 0; i < 100000000000000000; i++) { 
+                    console.log(Math.floor((Math.random() * 1000000000000) + 1));
+                }
+            }
+            function asincronaPruebaOpcional(funcioAexecutar)
+            {
+                console.log("Empieza la ejecución de prueba asíncrona con bucle pesado");
+                funcioAexecutar();
+                console.log("Mientras espera lanza un mini bucle");
+                for (i = 0; i < 5; i++) { 
+                    console.log(Math.floor((Math.random() * 1000000000000) + 1));
+                }
+            }
+            function temporizadorPrueba()
+            {
+                console.log("En 10 sec lanza el bucle pesado");
+                setTimeout(function()
+                {
+                    console.log("Bucle pesado en marcha");
+                    buclePesado();
+                }, 10000);
+            }
+            
         </script>
         <div id="tot">
             <div id="cabecera">
                 <h1>Activitat 1.4.2</h1>
-                <button onclick="clasica()">Clasica</button>
-                <button onclick="ambCallback(primera)">ambCallback</button>
-                <button onclick="asincrona(principal)">Asincrona</button>
+                <button class="botonStyle" onclick="clasica()">Clasica</button>
+                <button class="botonStyle" onclick="ambCallback(primera)">ambCallback</button>
+                <button class="botonStyle" onclick="asincrona(principal)">Asincrona</button>
+                <br/>
+                <button class="botonStyle" onclick="ambCallbackPruebaOpcional(buclePesado)">PruebaCallback</button>
+                <button class="botonStyle" onclick="asincronaPruebaOpcional(temporizadorPrueba)">PruebaAsincrona</button>
+                <button class="botonStyle" onclick="buclePesado()">BuclePesadoDirecto</button>
                 <h5>*S'ha d'observar el log</h5>
             </div>
             <hr>
@@ -132,18 +209,29 @@
                         <li>Puc cridar a dues funcions callback dins d'una altra funció?
                             <p>Sí funcio(call1,call2)</p>
                         <li>Puc cridar a una funció callback amb paràmetres?
-                            <p>Sí,<br>
+                            <p>Sí, de la seguent manera:<br>
                             function prueba (param1, param2) {<br>
                                 alert(param1 + " y " + param2);<br>
                             }<br>
                             function callbackTest (callback) {<br>
                                 callback (arguments[1], arguments[2]);<br>
                             }<br>
-                            callbackTest (prueba, "Hola", "Adios");
+                            callbackTest (prueba, "Hola", "Adios");<br/><br/>
+                            O també:<br/>
+                            function prueba (param1, param2) {<br>
+                                alert(param1 + " y " + param2);<br>
+                            }<br>
+                            function callbackTest (callback, param1, param2) {<br>
+                                callback (param1, param2);<br>
+                            }<br>
+                            callbackTest (prueba, "Hola", "Adios");<br/><br/>
                             </p>
                         <li>Mentre s’executa una funció callback amb molt pes de treball, es poden fer altres coses amb la pàgina web? (pots fer un bucle infinit per simular una funció amb molta càrrega de treball)
+                            <p>PruebaCallback: Es pot moure la pàgina amb l'scroll o amb la roda del ratolí, però no es pot seleccionar text ni fer clic en un altre botó de la web</p>
                         <li>Mentre s’executa una funció assíncrona amb molt pes de treball, es poden fer altres coses amb la pàgina web? (pots fer un bucle infinit per simular una funció amb molta càrrega de treball)
+                            <p>PruebaAsincrona: Doncs passa el mateix problema que l'anterior, mentres espera el timeOut tot bé, però quan s'executa la funcio amb molt de pes es queda penjat</p>
                         <li>Mentre s’executa una funció clàssica amb molt pes de treball, es poden fer altres coses amb la pàgina web? (pots fer un bucle infinit per simular una funció amb molta càrrega de treball)
+                            <p>BuclePesadoDirecto: Igual que la primera prova</p>
                     </ul>
             </ul>
         </div>
