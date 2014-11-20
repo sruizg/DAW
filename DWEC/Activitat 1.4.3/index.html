@@ -1,0 +1,153 @@
+<html>
+    <head>
+        <title> Actividad 1.4.2 </title>
+        <style>
+            body {
+                background-color: burlywood;
+            }
+            #tot {
+                border: 2;
+                border-radius: inherit;
+                border-color: darkgray;
+                border-style: solid;
+                padding: 10px;
+            }
+            #cabecera {
+                text-align: center;
+            }
+            ul, li {
+                font-weight: bold;
+            }
+            p {
+                font-weight: normal;
+            }
+            .botonStyle {
+                    -moz-box-shadow:inset 0px 1px 0px 0px #a6827e;
+                    -webkit-box-shadow:inset 0px 1px 0px 0px #a6827e;
+                    box-shadow:inset 0px 1px 0px 0px #a6827e;
+                    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #7d5d3b), color-stop(1, #634b30));
+                    background:-moz-linear-gradient(top, #7d5d3b 5%, #634b30 100%);
+                    background:-webkit-linear-gradient(top, #7d5d3b 5%, #634b30 100%);
+                    background:-o-linear-gradient(top, #7d5d3b 5%, #634b30 100%);
+                    background:-ms-linear-gradient(top, #7d5d3b 5%, #634b30 100%);
+                    background:linear-gradient(to bottom, #7d5d3b 5%, #634b30 100%);
+                    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#7d5d3b', endColorstr='#634b30',GradientType=0);
+                    background-color:#7d5d3b;
+                    -moz-border-radius:3px;
+                    -webkit-border-radius:3px;
+                    border-radius:3px;
+                    border:1px solid #54381e;
+                    display:inline-block;
+                    cursor:pointer;
+                    color:#ffffff;
+                    font-family:arial;
+                    font-size:13px;
+                    padding:6px 24px;
+                    text-decoration:none;
+                    text-shadow:0px 1px 0px #4d3534;
+            }
+            .botonStyle:hover {
+                    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #634b30), color-stop(1, #7d5d3b));
+                    background:-moz-linear-gradient(top, #634b30 5%, #7d5d3b 100%);
+                    background:-webkit-linear-gradient(top, #634b30 5%, #7d5d3b 100%);
+                    background:-o-linear-gradient(top, #634b30 5%, #7d5d3b 100%);
+                    background:-ms-linear-gradient(top, #634b30 5%, #7d5d3b 100%);
+                    background:linear-gradient(to bottom, #634b30 5%, #7d5d3b 100%);
+                    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#634b30', endColorstr='#7d5d3b',GradientType=0);
+                    background-color:#634b30;
+            }
+            .botonStyle:active {
+                    position:relative;
+                    top:1px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="cabecera">
+            <h1>Activitat 1.4.3</h1>
+            <button class="botonStyle" onclick="loadImages(sources, main)">Mostrar imágenes</button>
+        </div>
+        <div id="img"> </div>
+        
+        <script>
+            function loadImages(sources, callback) {
+                console.log("Cargando imagenes...");
+                var images = {};
+                var loadedImages = 0;
+                var numImages = 0;
+                // get num of sources
+                for(var src in sources) {
+                  numImages++;
+                }
+                for(var src in sources) {
+                  images[src] = new Image();
+                  images[src].onload = function() {
+                    if(++loadedImages >= numImages) {
+                        console.log("Fin carga imágenes");
+                        callback(images);
+                    }
+                  };
+                  images[src].src = sources[src];
+                }
+            }
+            
+            function main(images)
+            {
+                console.log("src: " + images.color1.outerHTML);
+                //document.getElementById("img").innerHTML= "<IMG SRC=" images[0].src +" WIDTH=200 HEIGHT=200 BORDER=0>";
+            }
+
+          var sources = {
+            color1: 'img/img1.jpg',
+            color2: 'img/img2.jpg',
+            color3: 'img/img3.jpg',
+            color4: 'img/img4.jpg',
+            color5: 'img/img5.jpg',
+            color6: 'img/img6.jpg',
+            color7: 'img/img7.jpg',
+            color8: 'img/img8.jpg',
+            color9: 'img/img9.jpg',
+            color10: 'img/img10.jpg'
+          };
+          /*function main(images){
+                console.log("Ejecutando main");
+                for(i=0; i<5; i++){
+                    var aleatorio = Math.floor((Math.random() * 10) + 1);
+                    document.getElementById("img").innerHTML= images.color1.outerHTML +" WIDTH=200 HEIGHT=200 BORDER=0>";
+                    switch (aleatorio) {
+                    case 1:
+                            document.getElementById("img").innerHTML= images.color1.outerHTML +" WIDTH=200 HEIGHT=200 BORDER=0>";
+                            break;
+                    case 2:
+                            document.getElementById("img").innerHTML= images.color2.outerHTML +" WIDTH=200 HEIGHT=200 BORDER=0>";
+                            break;
+                    case 3:
+                            document.getElementById("img").innerHTML= images.color3.outerHTML +" WIDTH=200 HEIGHT=200 BORDER=0>";
+                            break;
+                    case 4:
+                            document.getElementById("img").innerHTML= images.color4.outerHTML +" WIDTH=200 HEIGHT=200 BORDER=0>";
+                            break;
+                    case 5:
+                            document.getElementById("img").innerHTML= images.color5.outerHTML +" WIDTH=200 HEIGHT=200 BORDER=0>";
+                            break;
+                    case 6:
+                            document.getElementById("img").innerHTML= images.color6.outerHTML +" WIDTH=200 HEIGHT=200 BORDER=0>";
+                            break;
+                    case 7:
+                            document.getElementById("img").innerHTML= images.color7.outerHTML +" WIDTH=200 HEIGHT=200 BORDER=0>";
+                            break;
+                    case 8:
+                            document.getElementById("img").innerHTML= images.color8.outerHTML +" WIDTH=200 HEIGHT=200 BORDER=0>";
+                            break;
+                    case 9:
+                            document.getElementById("img").innerHTML= images.color9.outerHTML +" WIDTH=200 HEIGHT=200 BORDER=0>";
+                            break;
+                    case 10:
+                            document.getElementById("img").innerHTML= images.color10.outerHTML +" WIDTH=200 HEIGHT=200 BORDER=0>";
+                            break;
+                    }
+                console.log("Fin main");
+            }*/
+        </script>
+    </body>
+</html>
