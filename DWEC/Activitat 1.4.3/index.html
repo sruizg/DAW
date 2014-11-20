@@ -89,11 +89,12 @@
             }
             function main(images)
             {
+                console.log("Mostrando imágenes");
                 var cadena = "";
                 for(i=0; i<5; i++){
-                    console.log("Mostrando imágenes");
                     var num = Math.floor(Math.random() * 10);
                     cadena= cadena+ "<IMG SRC=" + images[num].src +" WIDTH=250 HEIGHT=250 BORDER=0>";
+                    console.log("Mostrando: " + images[num].src);
                 }
                 document.getElementById("img").innerHTML= cadena;
             }
