@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title> Loterías CEP </title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div class="container">
+                <div class="col-md-8"> <img src ="img/imgLogo.jpg"> </div>
+                <div class="col-md-4"> </div>
+                <div class="col-md-3"> </div>
+        </div>
+        <div class="container">
+            <div class="col-md-5">
+                <label for="NumLoteria">Introduce tu número de lotería</label>
+                <input type="text" class="form-control" id="NumLoteria">
+            </div>
+        </div>
+        <div class="container">
+            <label>Taula num.. añadir gif, descargar imgs..</label>
+        </div>
+        <script>
+            function loadImages(sources, callback) {
+                console.log("Cargando imagenes...");
+                var images = [];
+                var loadedImages = 0;
+
+                for(i=0; i<sources.length; i++) {
+                    images[i] = new Image();
+                    images[i].onload = function() {
+                        if(++loadedImages == sources.length) {
+                            console.log("Fin carga imágenes");
+                            alert("Imágenes cargadas");
+                            callback(images);
+                        }
+                    };
+                    images[i].src = sources[i];
+                }
+            }
+            var sources = [
+                'img/img0.jpg',
+                'img/img1.jpg',
+                'img/img2.jpg',
+                'img/img3.jpg',
+                'img/img4.jpg',
+                'img/img5.jpg',
+                'img/img6.jpg',
+                'img/img7.jpg',
+                'img/img8.jpg',
+                'img/img9.jpg',
+                'img/imgLogo.jpg',
+                'img/gifEsperaNum.gif'
+            ];
+            function main(images)
+            {
+                console.log("Mostrando imágenes");
+                var cadena = "";
+                for(i=0; i<5; i++){
+                    var num = Math.floor(Math.random() * 10);
+                    cadena= cadena+ "<IMG SRC=" + images[num].src +" WIDTH=250 HEIGHT=250 BORDER=0>";
+                    console.log("Mostrando: " + images[num].src);
+                }
+                document.getElementById("img").innerHTML= cadena;
+            }
+        </script>
+    </body>
+</html>
