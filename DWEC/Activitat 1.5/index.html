@@ -3,41 +3,49 @@
     <head>
         <title> Loterías CEP </title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+        <style>
+            body {
+                background-color: #5B74B0;
+            }
+            /*Mi paleta*/
+            .color-primary-0 { color: #8797C0 }	/* Main Primary color */
+            .color-primary-1 { color: #5B74B0 }
+            .color-primary-2 { color: #6F83B7 }
+            .color-primary-3 { color: #A4AFCA }
+            .color-primary-4 { color: #A6AEC3 }
+
+            .color-complement-0 { color: #FFE3AA }	/* Main Complement color */
+            .color-complement-1 { color: #FFD275 }
+            .color-complement-2 { color: #FFDA8E }
+            .color-complement-3 { color: #FFEDC9 }
+            .color-complement-4 { color: #FFF1D4 }
+        </style>
     </head>
-    <body>
+    <body onload="cargarImagenes(fuentes, mostrarImagenes)">
         <div class="container">
-                <div class="col-md-8"> <img src ="img/imgLogo.jpg"> </div>
-                <div class="col-md-4"> </div>
-                <div class="col-md-3"> </div>
+            <div class="col-md-8" id="imgBanner"> </div>
+            <div class="col-md-4"> </div>
+            <div class="col-md-3"> </div>
         </div>
         <div class="container">
             <div class="col-md-5">
-                <label for="NumLoteria">Introduce tu número de lotería</label>
-                <input type="text" class="form-control" id="NumLoteria">
+                <div class="form-group">
+                    </br>
+                    <label for="NumLoteria">Introduce tu número de lotería</label>
+                    <input type="text" class="form-control" id="NumLoteria" placeholder="00000">
+                </div>
+                <button class="btn btn-default" onclick="empezar()">Confirmar</button>
             </div>
         </div>
         <div class="container">
-            <label>Taula num.. añadir gif, descargar imgs..</label>
+            <div class="col-md-5">
+                <label id="numeroGanador"></label>
+            </div>
         </div>
         <script>
-            function loadImages(sources, callback) {
-                console.log("Cargando imagenes...");
-                var images = [];
-                var loadedImages = 0;
-
-                for(i=0; i<sources.length; i++) {
-                    images[i] = new Image();
-                    images[i].onload = function() {
-                        if(++loadedImages == sources.length) {
-                            console.log("Fin carga imágenes");
-                            alert("Imágenes cargadas");
-                            callback(images);
-                        }
-                    };
-                    images[i].src = sources[i];
-                }
-            }
-            var sources = [
+            //Globales
+            var imagenes = [];
+            var fuentes = [
                 'img/img0.jpg',
                 'img/img1.jpg',
                 'img/img2.jpg',
@@ -48,19 +56,81 @@
                 'img/img7.jpg',
                 'img/img8.jpg',
                 'img/img9.jpg',
-                'img/imgLogo.jpg',
-                'img/gifEsperaNum.gif'
+                'img/banner_principal.jpg'
             ];
-            function main(images)
-            {
-                console.log("Mostrando imágenes");
-                var cadena = "";
-                for(i=0; i<5; i++){
-                    var num = Math.floor(Math.random() * 10);
-                    cadena= cadena+ "<IMG SRC=" + images[num].src +" WIDTH=250 HEIGHT=250 BORDER=0>";
-                    console.log("Mostrando: " + images[num].src);
+            var cantidadDeLlamadas = 0;
+            var temporizador;
+            var cadena = "";
+            
+            //Métodos
+            function cargarImagenes(fuentes, callback) {
+                console.log("Cargando imagenes...");
+                var imagenesCargadas = 0;
+
+                for(i=0; i<fuentes.length; i++) {
+                    imagenes[i] = new Image();
+                    imagenes[i].onload = function() {
+                        if(++imagenesCargadas == fuentes.length) {
+                            console.log("Fin carga imágenes");
+                            callback(imagenes);
+                        }
+                    };
+                    imagenes[i].src = fuentes[i];
                 }
-                document.getElementById("img").innerHTML= cadena;
+            }
+            function mostrarImagenes(imagenes){
+                console.log("Mostrando imágenes");
+                var cadena = "<img src=" + imagenes[10].src + " width=900 height=200>";
+                document.getElementById("imgBanner").innerHTML= cadena;
+            }
+            /**
+             * Incluye los números comprendidos entre 0 y 9 (incluidos)
+             */
+            function getNumeroAleatorio() {
+                return Math.floor(Math.random() * (9 - 0 + 1)) + 0;
+            }
+            
+            function calcularNumeroGanador(){
+                var numeroGanador = [];
+                for(i=0; i<5; i++){
+                    var num = getNumeroAleatorio();
+                    numeroGanador.push(num);
+                }
+                return numeroGanador;
+            }
+            
+            function mostrarNumero(numeroGanador){
+                cantidadDeLlamadas++;
+ 
+                cadena= cadena+ "<IMG SRC=" + imagenes[numeroGanador[cantidadDeLlamadas]].src +" WIDTH=50 HEIGHT=50 BORDER=0>";
+                console.log("Mostrando: " + imagenes[numeroGanador[cantidadDeLlamadas]].src);
+                document.getElementById("numeroGanador").innerHTML= cadena;
+                
+                if (cantidadDeLlamadas === 5){
+                    clearInterval(temporizador);
+                    calcularGanador();
+                }   
+            }
+            
+            function calcularGanador(){
+                var ganador = false;
+                if (ganador){
+                    alert("Ha ganado!");
+                }
+                else{
+                    alert("Suerte para otra vez!");
+                }
+            }
+            /**
+             * Calcula los números ganadores y los muestra cada 2 segundos y avisa si es ganador
+             */
+            function empezar()
+            {
+                cadena = "";
+                clearInterval(temporizador);
+                temporizador = setInterval(function(){
+                    mostrarNumero(calcularNumeroGanador());
+                }, 2000);
             }
         </script>
     </body>
