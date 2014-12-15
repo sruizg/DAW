@@ -1,45 +1,39 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
-        <title> Loter�as CEP </title>
+		<meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Loterías CEP</title>
+        <meta name="actividad1.5" content="Juegos del azar">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/estilos.css">
         <style>
-            body {
-                background-color: #5B74B0;
-            }
-            /*Mi paleta*/
-            .color-primary-0 { color: #8797C0 }	/* Main Primary color */
-            .color-primary-1 { color: #5B74B0 }
-            .color-primary-2 { color: #6F83B7 }
-            .color-primary-3 { color: #A4AFCA }
-            .color-primary-4 { color: #A6AEC3 }
-
-            .color-complement-0 { color: #FFE3AA }	/* Main Complement color */
-            .color-complement-1 { color: #FFD275 }
-            .color-complement-2 { color: #FFDA8E }
-            .color-complement-3 { color: #FFEDC9 }
-            .color-complement-4 { color: #FFF1D4 }
+            
         </style>
     </head>
     <body onload="cargarImagenes(fuentes, mostrarImagenes)">
         <div class="container">
-            <div class="col-md-8" id="imgBanner"> </div>
-            <div class="col-md-4"> </div>
-            <div class="col-md-3"> </div>
+            <div class="col-md-12" id="imgBanner"> </div>
         </div>
         <div class="container">
             <div class="col-md-5">
+                <br>
                 <div class="form-group">
-                    </br>
-                    <label for="NumLoteria">Introduce tu n�mero de loter�a</label>
+                    <label for="NumLoteria">Introduce tu número de lotería</label>
                     <input type="text" class="form-control" id="NumLoteria" placeholder="00000">
                 </div>
                 <button class="btn btn-default" onclick="empezar()">Confirmar</button>
             </div>
-        </div>
-        <div class="container">
-            <div class="col-md-5">
-                <label id="numeroGanador"></label>
+            <div id ="contenedorNumeros" class="col-md-7">
+                <br>
+                <label id="NumLoteriaGanador"></label>
+                <br>
+                <div id="gif" class="col-md-2"></div>
+                <div id="num0" class="col-md-2 numeroGanador"></div>
+                <div id="num1" class="col-md-2 numeroGanador"></div>
+                <div id="num2" class="col-md-2 numeroGanador"></div>
+                <div id="num3" class="col-md-2 numeroGanador"></div>
+                <div id="num4" class="col-md-2 numeroGanador"></div>
             </div>
         </div>
         <script>
@@ -56,13 +50,17 @@
                 'img/img7.jpg',
                 'img/img8.jpg',
                 'img/img9.jpg',
-                'img/banner_principal.jpg'
+                'img/banner_principal.jpg',
+                'img/dancingBanana.gif'
             ];
-            var cantidadDeLlamadas = 0;
-            var temporizador;
-            var cadena = "";
+            var contador = 0;
+            var numGanador = "";
+            var numeroGanador = [];
             
-            //M�todos
+            //Métodos
+            /**
+            * Carga las imágenes del array de fuentes y las coloca en un array de imagenes cargadas
+            **/
             function cargarImagenes(fuentes, callback) {
                 console.log("Cargando imagenes...");
                 var imagenesCargadas = 0;
@@ -71,35 +69,50 @@
                     imagenes[i] = new Image();
                     imagenes[i].onload = function() {
                         if(++imagenesCargadas == fuentes.length) {
-                            console.log("Fin carga im�genes");
+                            console.log("Fin carga imágenes");
                             callback(imagenes);
                         }
                     };
                     imagenes[i].src = fuentes[i];
                 }
             }
-            function mostrarImagenes(imagenes){
-                console.log("Mostrando im�genes");
-                var cadena = "<img src=" + imagenes[10].src + " width=900 height=200>";
-                document.getElementById("imgBanner").innerHTML= cadena;
-            }
             /**
-             * Incluye los n�meros comprendidos entre 0 y 9 (incluidos)
+            * Muestra las imágenes cargadas en la web
+            **/
+            function mostrarImagenes(imagenes){
+                console.log("Mostrando imágenes");
+                var cadena = "<img src=" + imagenes[10].src + " width=100% height=200>";
+                document.getElementById("imgBanner").innerHTML= cadena;
+                console.log("Fin mostrar imágenes");
+            }
+            
+            /*-------------------------------------------------------------------------*/
+            /**
+             * Retorna un número aleatório comprendido entre 0 y 9 (incluidos)
              */
             function getNumeroAleatorio() {
                 return Math.floor(Math.random() * (9 - 0 + 1)) + 0;
             }
-            
+            /**
+            * Calcula el número ganador
+            * Retorna el array con el número ganador
+            **/
             function calcularNumeroGanador(){
+                console.log("calcularNumeroGanador");
                 var numeroGanador = [];
                 for(i=0; i<5; i++){
                     var num = getNumeroAleatorio();
                     numeroGanador.push(num);
+                    numGanador= numGanador + num;
                 }
+                console.log("NumGanador=" + numGanador);
                 return numeroGanador;
             }
             
-            function mostrarNumero(numeroGanador){
+            /**
+            * Muestra el número con imágenes (INVALIDADO)
+            **/
+            /*function mostrarNumero(numeroGanador){
                 cantidadDeLlamadas++;
  
                 cadena= cadena+ "<IMG SRC=" + imagenes[numeroGanador[cantidadDeLlamadas]].src +" WIDTH=50 HEIGHT=50 BORDER=0>";
@@ -110,28 +123,71 @@
                     clearInterval(temporizador);
                     calcularGanador();
                 }   
-            }
+            }*/
             
+            /**
+            * Monta el número premiado cada 1 segundo
+            **/
+            function mostrarNumeros() {
+                if (contador < 5) {
+                    console.log("mostrarNumero posicion: " + contador + " numero: " + numeroGanador[contador]);
+                    setTimeout("mostrarNumeros()", 1000);
+                    document.getElementById("num" + contador).innerHTML = "<label>" + numeroGanador[contador] + "</label>";
+                    contador++;
+                }
+                else {
+                    console.log("Borrar gift");
+                    document.getElementById("gif").innerHTML = "";
+                    console.log("Fin mostrarNumero");
+                    calcularGanador();
+                }
+            }
+            /**
+            * Calcula que el número del usuario coincida con el número ganador y muestra un mensaje por pantalla
+            **/
             function calcularGanador(){
                 var ganador = false;
-                if (ganador){
+                var numUsuario = parseInt(document.getElementById("NumLoteria").value);
+                console.log("Usuario a introducido: " + numUsuario);
+                console.log("Máquina tenía generado: " + numGanador);
+                if (numGanador == numUsuario){
                     alert("Ha ganado!");
+                }
+                else if (numUsuario == parseInt("00000")){
+                    alert("Ha ganado por usar el num secreto! ;)");
                 }
                 else{
                     alert("Suerte para otra vez!");
                 }
+                //Poner una imagen dond el abanana tipo check o cross para saber si ha ganado
+                console.log("Fin loteria");
             }
             /**
-             * Calcula los n�meros ganadores y los muestra cada 2 segundos y avisa si es ganador
+            * Limpia los datos para mostrar de nuevo
+            **/
+            function limpiar(){
+                numGanador = "";
+                contador = 0;
+                for(i=0; i<5; i++){
+                    document.getElementById("num" + i).innerHTML = "";
+                }
+            }
+            /**
+             * Main de la aplicación de lotería
+             * Llama a funciones para calcular y mostrar el número ganador
              */
             function empezar()
             {
-                cadena = "";
-                clearInterval(temporizador);
-                temporizador = setInterval(function(){
-                    mostrarNumero(calcularNumeroGanador());
-                }, 2000);
+                console.log("Empieza la loteria");
+                limpiar();
+                console.log("Muestra gif");
+                document.getElementById("gif").innerHTML = "<img src=" + imagenes[11].src + " width=100% height=100%>";
+                numeroGanador = calcularNumeroGanador();
+                document.getElementById("NumLoteriaGanador").innerHTML = "Número Ganador: ";
+                mostrarNumeros();
             }
+            
+            /*-------------------------------------------------------------------------*/
         </script>
     </body>
 </html>
